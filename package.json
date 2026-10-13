@@ -1,0 +1,18 @@
+{
+  "name": "mystream",
+  "version": "12.1.0",
+  "private": true,
+  "description": "MyStream: private family streaming app (web, desktop, Docker)",
+  "type": "module",
+  "license": "UNLICENSED",
+  "engines": { "node": ">=22.12" },
+  "scripts": {
+    "start": "node services/api/src/server.js",
+    "cli": "node services/api/src/cli.js",
+    "dev": "node --watch-path=services/api/src services/api/src/server.js",
+    "test": "node --test --test-concurrency=1 tests/unit/*.test.js",
+    "test:e2e": "node tests/e2e/run.mjs",
+    "fixtures": "node tests/fixtures/make-media.mjs",
+    "build:desktop": "node scripts/build-desktop.mjs"
+  }
+}

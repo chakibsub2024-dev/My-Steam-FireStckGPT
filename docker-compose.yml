@@ -1,0 +1,33 @@
+# MyStream server. Usage:
+#   cp .env.example .env   # set TMDB_API_KEY and ADMIN_BOOTSTRAP_PASSWORD
+#   docker compose up -d --build
+# Then open http://<server-ip>:8787 (put HTTPS in front for internet access; see docs/DEPLOYMENT.md).
+services:
+  mystream:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile
+    image: mystream:12.0.0
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      MYSTREAM_HOST: 0.0.0.0
+      MYSTREAM_PORT: 8787
+      MYSTREAM_DATA_DIR: /data
+    ports:
+      - "${MYSTREAM_PUBLISH_PORT:-8787}:8787"
+    volumes:
+      - mystream_data:/data
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop: [ALL]
+    stop_grace_period: 10s
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "3" }
+
+volumes:
+  mystream_data:
