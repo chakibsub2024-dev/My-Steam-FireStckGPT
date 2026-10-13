@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:">
+<title>MyStream setup</title>
+<link rel="stylesheet" href="setup.css">
+</head>
+<body>
+<main>
+  <h1>MyStream</h1>
+  <p class="muted">Choose where your MyStream server runs.</p>
+  <form id="f">
+    <label class="opt"><input type="radio" name="mode" value="local" checked> <span><strong>On this computer</strong><br><small>The server starts with the app. Needs a free TMDB API key.</small></span></label>
+    <label class="field" id="keyRow"><span>TMDB API key (v3 key or v4 read token)</span><input id="tmdb" autocomplete="off" placeholder="Leave empty to keep the saved key"></label>
+    <div class="share" id="shareRow">
+      <label class="check"><input type="checkbox" id="shareLan"> <span><strong>Share on my network</strong><br><small>Phones, tablets and TVs at home can use this PC as their MyStream server while the app is open. You must replace a temporary admin password first.</small></span></label>
+      <label class="field inline"><span>Port</span><input id="port" inputmode="numeric" placeholder="8787" maxlength="5"></label>
+      <p id="lan" class="muted small"></p>
+    </div>
+    <label class="opt"><input type="radio" name="mode" value="remote"> <span><strong>Another server</strong><br><small>A MyStream server on your network, Docker host or Tailscale.</small></span></label>
+    <label class="field" id="urlRow"><span>Server address</span><input id="url" placeholder="http://192.168.1.20:8787 or https://stream.example.com"></label>
+    <p id="err" role="alert"></p>
+    <button type="submit">Save and restart</button>
+  </form>
+  <p class="muted small">Get a TMDB key at themoviedb.org → Settings → API. It is stored only on this computer.</p>
+  <form id="reset" class="reset">
+    <h2>Reset admin password</h2>
+    <p class="muted small">For the server on this computer. Signs the admin out everywhere.</p>
+    <input id="newpw" type="password" autocomplete="new-password" placeholder="New password (8+ characters)" minlength="8">
+    <p id="resetMsg" role="status"></p>
+    <button type="submit">Set admin password</button>
+  </form>
+</main>
+<script src="setup.js"></script>
+</body>
+</html>

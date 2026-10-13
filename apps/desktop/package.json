@@ -1,0 +1,11 @@
+{
+  "name": "mystream-desktop",
+  "productName": "MyStream",
+  "version": "12.1.0",
+  "private": true,
+  "description": "MyStream desktop app",
+  "main": "electron.cjs",
+  "scripts": {
+    "start": "electron ."
+  }
+}

@@ -1,0 +1,22 @@
+body { margin: 0; background: #0b0b0f; color: #f2f2f5; font: 15px/1.5 system-ui, "Segoe UI", sans-serif; }
+main { padding: 28px; }
+h1 { color: #e50914; text-transform: uppercase; letter-spacing: -.02em; margin: 0 0 4px; }
+.muted { color: #a3a3b2; }
+.small { font-size: 13px; }
+form { display: grid; gap: 12px; margin-top: 16px; }
+.opt { display: flex; gap: 10px; align-items: flex-start; padding: 12px; border: 1px solid #2a2a35; border-radius: 10px; background: #15151c; cursor: pointer; }
+.field span { display: block; font-size: 13px; color: #a3a3b2; margin-bottom: 4px; }
+input[type=text], input:not([type]) { width: 100%; box-sizing: border-box; padding: 10px 12px; border-radius: 6px; border: 1px solid #2a2a35; background: #1e1e27; color: inherit; font: inherit; }
+button { padding: 12px; border: 0; border-radius: 6px; background: #e50914; color: #fff; font-weight: 700; font-size: 15px; cursor: pointer; }
+#err { color: #ff6b6b; min-height: 1em; margin: 0; }
+[hidden] { display: none !important; }
+input[type=password] { width: 100%; box-sizing: border-box; padding: 10px 12px; border-radius: 6px; border: 1px solid #2a2a35; background: #1e1e27; color: inherit; font: inherit; }
+.reset { margin-top: 26px; padding-top: 18px; border-top: 1px solid #2a2a35; }
+.reset h2 { font-size: 16px; margin: 0; }
+.ok { color: #3ccf7a; } .err { color: #ff6b6b; }
+.share { padding: 12px; border: 1px solid #2a2a35; border-radius: 10px; background: #15151c; display: grid; gap: 8px; }
+.check { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
+.field.inline { display: flex; align-items: center; gap: 10px; }
+.field.inline span { margin: 0; }
+.field.inline input { width: 110px; }
+#lan { margin: 0; overflow-wrap: anywhere; }
